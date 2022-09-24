@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{30F7EB86-D51A-4316-B079-25187C3925CB}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.FirstConsoleProject PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FirstConsoleProject/Interfaces/IHumanResourceManager.cs">
+    <Files>
+      <File FileName="FirstConsoleProject/Program.cs" Line="13" Column="46" />
+      <File FileName="FirstConsoleProject/Models/Employee.cs" Line="60" Column="9" />
+      <File FileName="FirstConsoleProject/Models/Department.cs" Line="33" Column="34" />
+      <File FileName="FirstConsoleProject/Interfaces/IHumanResourceManager.cs" Line="13" Column="115" />
+      <File FileName="FirstConsoleProject/Services/HRManagerService.cs" Line="76" Column="123" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="FirstConsoleProject" expanded="True">
+            <Node name="FirstConsoleProject" expanded="True">
+              <Node name="Interfaces" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Services" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+</Properties>
