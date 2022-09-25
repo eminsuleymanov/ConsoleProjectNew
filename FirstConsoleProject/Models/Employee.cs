@@ -67,6 +67,10 @@ namespace FirstConsoleProject.Models
             No = DepartmentName.Substring(0,2)+ _no;
             
         }
+        public override string ToString()
+        {
+            return $"No:{No}\nFullName: {FullName}\nPosition: {Position}\nSalary: {Salary}\nDepartment:{DepartmentName}"; 
+        }
     }
 }
 

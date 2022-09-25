@@ -6,7 +6,7 @@ namespace FirstConsoleProject.Interfaces
     public interface IHumanResourceManager
     {
         Department[] Departments { get; }
-        void AddDepartment(string departmentName,int workerLimit,double salary);
+        void AddDepartment(string departmentName,int workerLimit);
         void EditDepartaments(string name,string newName);
         void GetDepartments();
         void AddEmployee(string departmentName,string fullname, string position, double salary);

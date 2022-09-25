@@ -32,7 +32,7 @@ namespace FirstConsoleProject.Models
             averageSalary = sumSalary / Employees.Length;
             return averageSalary;
         }
-        public Department(string name, int workerLimit, double salaryLimit)
+        public Department(string name, int workerLimit)
         {
             Employees = new Employee[0];
         }
