@@ -152,7 +152,6 @@ namespace FirstConsoleProject
             }
             humanResourceManager.EditDepartaments(departmentName, newDepartmentName);
         }
-
         static void AddDepartment(ref IHumanResourceManager humanResourceManager)
         {
             Console.WriteLine("Elave Etmek Istediyiniz Departmentin Adini Daxil Edin");
@@ -164,7 +163,7 @@ namespace FirstConsoleProject
             }
             foreach (Department department in humanResourceManager.Departments)
             {
-                if (department.Name==departmentName)
+                if (department.Name.ToUpper() == departmentName.ToUpper())
                 {
                     Console.WriteLine("Bu Adda Department Artiq Movcuddur");
                     departmentName = Console.ReadLine();

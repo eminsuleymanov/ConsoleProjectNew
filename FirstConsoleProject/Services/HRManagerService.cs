@@ -61,10 +61,9 @@ namespace FirstConsoleProject.Services
             }
         }
 
-
         public void AddEmployee( string fullname,string departmentName, string position, double salary)
         {
-            if (!string.IsNullOrEmpty(fullname) && char.IsUpper(fullname[0]))
+            if (!string.IsNullOrEmpty(fullname) || char.IsUpper(fullname[0]))
             {
                 for (int i = 1; i < fullname.Length; i++)
                 {
@@ -75,11 +74,10 @@ namespace FirstConsoleProject.Services
                     Console.WriteLine("Ad ve Soyad Arasinda Bir Boshlug Olmalidir");
                     fullname = Console.ReadLine();
                 }
-                
             }
             else
             {
-                Console.WriteLine("Ilk Herf Boyuk Herf Ile Olmalidir ve Boshlug Gonderilmemelidir!");
+                Console.WriteLine("Adin Ilk Herfi Boyuk Herf Olmalidir ve Boshlug Gonderilmemelidir!");
                 fullname = Console.ReadLine();
             }
             foreach (Department department in Departments)

@@ -31,27 +31,6 @@ namespace FirstConsoleProject.Models
             return;
         }
 
-        public bool CheckFullName(string fullname)
-        {
-            string newfullName = fullname.Trim();
-            string[] arr = newfullName.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-            newfullName = string.Join(' ', arr);
-
-            if (string.IsNullOrEmpty(fullname) && char.IsUpper(fullname[0]) && newfullName.Length==fullname.Length)
-            {
-                for (int i = 1; i < fullname.Length; i++)
-                {
-                    if (char.IsLower(fullname[i]) || (fullname[i] == ' ' && char.IsUpper(fullname[i + 1])))
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return false;
-
-        }
-
         static Employee()
         {
             _no = 1000;
