@@ -27,15 +27,25 @@ namespace FirstConsoleProject.Services
 
         public void GetDepartments()
         {
-            foreach (Department item in Departments)
+            if (Departments.Length == 0)
             {
-                Console.WriteLine(item);
+                Console.WriteLine("Ilk Once Department Yaradilmalidir");
+                return;
+            }
+            foreach (Department department in Departments)
+            {
+                Console.WriteLine($"Departmentin Adi:{department.Name}\nOrtalama Maash:{department.AverageSalary}");
             }
 
         }
 
         public void EditDepartaments(string oldname, string newName)
         {
+            if (Departments.Length == 0)
+            {
+                Console.WriteLine("Ilk Once Department Yaradilmalidir");
+                return;
+            }
             foreach (Department department in Departments)
             {
                 if (department.Name.ToUpper() == oldname.ToUpper())
@@ -44,7 +54,8 @@ namespace FirstConsoleProject.Services
                 }
                 else
                 {
-                    Console.WriteLine("Yazilan adda department yoxdur");
+                    Console.WriteLine("Yazilan Adda Department Yoxdur");
+                    return;
                 }
 
             }
@@ -93,24 +104,20 @@ namespace FirstConsoleProject.Services
             
         }
 
-        public void EditEmployee(string departmentName, string newFullname, string newPosition, double newSalary, string no)
+        public void EditEmployee(string newPosition, double newSalary, string no)
         {
             foreach (Department department in Departments)
             {
-                if (department.Name.ToUpper()==departmentName.ToUpper())
+                for (int i = 0; i < department.Employees.Length; i++)
                 {
-                    for (int i = 0; i < department.Employees.Length; i++)
+                    if (department.Employees[i].No.ToUpper() == no.ToUpper())
                     {
-                        if (department.Employees[i].No.ToUpper()==no.ToUpper())
-                        {
-                            department.Employees[i].Salary = newSalary;
-                            department.Employees[i].Position = newPosition;
-                            department.Employees[i].FullName = newFullname;
-                        }
-                        else
-                        {
-                            Console.WriteLine($"{department.Employees} - da bele ishci yoxdur");
-                        }
+                        department.Employees[i].Salary = newSalary;
+                        department.Employees[i].Position = newPosition;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{department.Employees} - da Bele Ishci Yoxdur");
                     }
                 }
 
@@ -123,6 +130,7 @@ namespace FirstConsoleProject.Services
             if (Departments.Length==0)
             {
                 Console.WriteLine("Ilk Once Department Yaradilmalidir");
+                return;
             }
             foreach (Department department in Departments)
             {
@@ -131,7 +139,7 @@ namespace FirstConsoleProject.Services
                     if (department.Employees.Length==0)
                     {
                         Console.WriteLine("Bu Departmentde Ishci yoxdur");
-                        //return;
+                        
                     }
                     else
                     {

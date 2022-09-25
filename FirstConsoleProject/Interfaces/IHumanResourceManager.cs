@@ -10,7 +10,7 @@ namespace FirstConsoleProject.Interfaces
         void EditDepartaments(string name,string newName);
         void GetDepartments();
         void AddEmployee(string departmentName,string fullname, string position, double salary);
-        void EditEmployee(string departmentName, string fullname, string newPosition, double newSalary,string no);
+        void EditEmployee(string newPosition, double newSalary,string no);
         void RemoveEmployee(string no,string departmentName);
         
     }

@@ -108,7 +108,30 @@ namespace FirstConsoleProject
 
         static void EditEmployee(ref IHumanResourceManager humanResourceManager)
         {
-            Console.WriteLine("Edit");
+            Console.WriteLine("Edit Olunacag Ishcinin No-sunu Daxil Edin");
+            string no = Console.ReadLine();
+            while (no.Length < 6)
+            {
+                Console.WriteLine("Ishcinin No-sunda Yerleshdiyi Departmentin Ilk 2 Herfi Ve 4 Reqem Olmalidir");
+                return;
+            }
+            Console.WriteLine("Ishci Ucun Yeni Position Teyin Edin:");
+            string newPosition = Console.ReadLine();
+            while (newPosition.Length<2)
+            {
+                Console.WriteLine("Position Minimum 2 Herfden Ibaret Olmalidir");
+                newPosition = Console.ReadLine();
+            }
+            Console.WriteLine("Ishci ucun Yeni Maash Teyin Edin");
+            string salaryStr = Console.ReadLine();
+            double newSalary;
+            while (!double.TryParse(salaryStr, out newSalary) || newSalary < 250)
+            {
+                Console.WriteLine("Ishcinin Maashi 250 Manatdan Az Ola Bilmez");
+                salaryStr = Console.ReadLine();
+            }
+            humanResourceManager.EditEmployee(no,newSalary,newPosition);
+
         }
 
         static void EditDepartaments(ref IHumanResourceManager humanResourceManager)
@@ -120,6 +143,14 @@ namespace FirstConsoleProject
                 Console.WriteLine("Department Adi Minimum 2 Herfden Ibaret Olmalidir");
                 departmentName = Console.ReadLine();
             }
+            Console.WriteLine("Yeni Departmentin Adini Yazin");
+            string newDepartmentName = Console.ReadLine();
+            while (newDepartmentName.Length < 2)
+            {
+                Console.WriteLine("Department Adi Minimum 2 Herfden Ibaret Olmalidir");
+                newDepartmentName = Console.ReadLine();
+            }
+            humanResourceManager.EditDepartaments(departmentName, newDepartmentName);
         }
 
         static void AddDepartment(ref IHumanResourceManager humanResourceManager)
@@ -148,9 +179,13 @@ namespace FirstConsoleProject
             }
             humanResourceManager.AddDepartment(departmentName, limit);
         }
-
         static void ShowEmployees(ref IHumanResourceManager humanResourceManager)
         {
+            if (humanResourceManager.Departments.Length==0)
+            {
+                Console.WriteLine("Ilk Once Department Yaradilmalidir");
+                return;
+            }
             foreach (Department department in humanResourceManager.Departments)
             {
                 foreach (Employee employee in department.Employees)
@@ -163,13 +198,31 @@ namespace FirstConsoleProject
         {
             Console.WriteLine("Gormek Istediyiniz Departmentin Adini Daxil Edin:");
             string departmentName = Console.ReadLine();
+            while (departmentName.Length < 2)
+            {
+                Console.WriteLine("Department Adi Minimum 2 Herfden Ibaret Olmalidi");
+                departmentName = Console.ReadLine();
+            }
             foreach (Department department in humanResourceManager.Departments)
             {
+                if (humanResourceManager.Departments.Length == 0)
+                {
+                    Console.WriteLine("Ilk Once Department Yaradilmalidir");
+                    return;
+                }
                 if (departmentName.ToUpper() == department.Name.ToUpper())
                 {
-                    foreach (Employee employee in department.Employees)
-                    {   
-                      Console.WriteLine($"Ishci No:{employee.No}\nIshcinin Ad Ve Soyadi:{employee.FullName}\nMaash:{employee.Salary}\nVezife:{employee.Position}");
+                    if (!(department.Employees.Length==0))
+                    {
+                        foreach (Employee employee in department.Employees)
+                        {
+                            Console.WriteLine($"Ishci No:{employee.No}\nIshcinin Ad Ve Soyadi:{employee.FullName}\nMaash:{employee.Salary}\nVezife:{employee.Position}");
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Bu Departmentde Ishci Yoxdur");
                     }
                 }
                 else
@@ -193,6 +246,7 @@ namespace FirstConsoleProject
             while (no.Length<6)
             {
                 Console.WriteLine("Ishcinin No-sunda Yerleshdiyi Departmentin Ilk 2 Herfi Ve 4 Reqem Olmalidir");
+                no = Console.ReadLine();
             }
             humanResourceManager.RemoveEmployee(no, departmentName);
         }

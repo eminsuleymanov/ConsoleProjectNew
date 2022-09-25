@@ -6,6 +6,7 @@ namespace FirstConsoleProject.Models
         public string Name;
         public int WorkerLimit;
         static double _salaryLimit;
+        public double AverageSalary;
         public Employee[] Employees;
         public double SalaryLimit { get => _salaryLimit;
             set
@@ -16,7 +17,7 @@ namespace FirstConsoleProject.Models
                 }
                 else
                 {
-                    Console.WriteLine("Butun isceler ucun ayliq cemi verilecek minimum mebleg 250 manat olmalidir");
+                    Console.WriteLine("Butun Ishceler Ucun Ayliq Cemi Verilecek Minimum Mebleg 250 Manat Olmalidir");
                 }
             }
         }
@@ -30,7 +31,8 @@ namespace FirstConsoleProject.Models
 
             }
             averageSalary = sumSalary / Employees.Length;
-            return averageSalary;
+            AverageSalary = averageSalary;
+            return AverageSalary;
         }
         public Department(string name, int workerLimit)
         {

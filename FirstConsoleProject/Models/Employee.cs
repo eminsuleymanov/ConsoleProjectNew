@@ -18,7 +18,7 @@ namespace FirstConsoleProject.Models
             }
             else
             {
-                Console.WriteLine("Maash 250den ashagi ola bilmez!");
+                Console.WriteLine("Maash 250den Ashagi Ola Bilmez!");
             }
         }
 
@@ -26,7 +26,7 @@ namespace FirstConsoleProject.Models
         {
             if (Position.Length<2)
             {
-                Console.WriteLine("Position minimum 2 herfden ibaret olmalidir");
+                Console.WriteLine("Position Minimum 2 Herfden Ibaret Olmalidir");
             }
             return;
         }
